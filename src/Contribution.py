@@ -7,19 +7,6 @@ class Contribution(object):
 
 
 	def __init__(self, line):
-
-		self.recipient = None
-		self.donor = None
-		self.amount = None
-		self.otherid = None
-
-		self.zipcode = None
-		self.date = None 
-		
-		self.valid = True
-		self.parse_record(line)
-
-	def parse_record(self,line):
 		data = line.strip().split("|")
 
 		self.recipient = data[0]
@@ -27,11 +14,23 @@ class Contribution(object):
 		self.amount = data[14]
 		self.otherid = data[15]
 
-		self.zipcode = self.parse_zipcode(data[10])
-		self.date= self.parse_date(data[13])
-
-		if self.otherid != '' or self.recipient == '' or self.donor == '' or self.amount == '':
+		self.zipcode = data[10]
+		self.date= data[13]
+		
+		self.valid = True
+		if self.otherid != '' or self.recipient == '' or self.donor == '' or self.amount == '' or self.date == '' or (not self.valid_date()):
 			self.valid = False
+		if self.valid:
+			self.zipcode = self.parse_zipcode(data[10])
+			self.date= self.parse_date(data[13])
+
+	def valid_date(self):
+		valid = True
+		try:
+			time.strptime(self.date,"%m%d%Y")
+		except:
+			valid = False
+		return valid
 
 	def parse_zipcode(self, zipcodestr):
 		if len(zipcodestr)<5:

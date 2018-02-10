@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 import sys
 
 from Contribution import * 
@@ -27,12 +28,24 @@ def parse_contrib(path1, path2, path3):
 			outfile.write(printout+'\n')
 
 def main(argv):
-	contrib_path = argv[1]
-	perc_path = argv[2]
-	out_path = argv[3]
-	print("Output file path: ", out_path)
-
+	if len(argv) < 4:
+		print ("Error input arguments!")
+		print ("Usage: python ./src/donation-analytics.py ./input/itcont.txt ./input/percentile.txt ./output/repeat_donors.txt")
+		os._exit(1)
+	else:
+		contrib_path = argv[1]
+		perc_path = argv[2]
+		out_path = argv[3]
+		
+	if not os.path.exists(contrib_path):
+		print("Input file 1 does not exist!")
+		os._exit(1)
+	if not os.path.exists(perc_path):
+		print("Input file 2 does not exist")
+		os._exit(1)
+		
 	parse_contrib(contrib_path, perc_path, out_path)
+	
 
 if __name__ == "__main__":
 	main(sys.argv)
