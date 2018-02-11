@@ -9,7 +9,7 @@ My main idea was to use three python classes for:
 * identifing if a donor is repeat (Donor.py)
 * calculating the percentile (Recipient.py)
 
-Donor.py use a dictionary to record the year that a donor first made a donation, which could help fast identify is the donor is a repeat donor. 
+Donor.py use a dictionary to record the year that a donor first made a donation, which could help fast identify is the donor if a repeat donor. 
 
 Recipient.py use a dictionary to record the all the transaction amount a recipient has received for the year and the zip code that the recipient has received repeat donations. A combination of CMTI_ID, ZIP_CODE, and the year is used as the unique key. The transaction amount are stored in two priority queues for each unique key. One priority queue is used to store the values less than and equal to the percentile, and one priority queue is used to store the values greater than the percentile. This allows for a quick calculation of the percentile, fast insertion, and fast access as data stream in.
 
