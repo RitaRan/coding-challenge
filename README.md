@@ -34,6 +34,7 @@ Additional tests have been added in the `insight_testuite/tests` folder. Followi
 * Get right 70th percentile
 
 This can be run by using the `run_tests.sh` script. Execute the following command:
+
     cd insight_testsuite
     ./run_tests.sh
 
