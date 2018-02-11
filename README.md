@@ -1,6 +1,6 @@
 # Insight Data Engineering Coding Challenge
 
-A Python solution to the Insight Data Engineering coding challenge (Feb 2018). The challenge was to identify the repeated donations a recipient has received and calculating the percentile as data stream in.
+A Python solution to the Insight Data Engineering coding challenge (Feb 2018). The challenge was to identify the repeated donations a recipient has received and calculate the percentile as data stream in.
 
 # Challenge summary
 
