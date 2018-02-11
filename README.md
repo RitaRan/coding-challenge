@@ -20,6 +20,7 @@ My main idea was to use three python classes for:
 
 To exicute the code use the `run.sh` script.
 
+    chmod a+x run.sh
     ./run.sh
     
 # Tests
